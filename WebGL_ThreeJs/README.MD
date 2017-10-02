@@ -4,4 +4,4 @@
 3. set up scene
 4. set up light
 5. set up object
-6. function all above
+6. run the complete code, function all above
