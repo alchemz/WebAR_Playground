@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test 1 for creating canvas</title>
+        <!--Using Three.js-->
+        <script src="Three.js"></script>
+        
+        //Start Three.js renderer
+             var renderer;//declare object
+             function initThree() {
+                width = document.getElementById('canvas3d').clientWidth;//get width of「canvas3d」
+                height = document.getElementById('canvas3d').clientHeight;//get height of「canvas3d」
+                renderer=new THREE.WebGLRenderer({antialias:true});//create a new renderer
+                renderer.setSize(width, height );//make the renderer the same size as the canvas
+                document.getElementById('canvas3d').appendChild(renderer.domElement);
+                renderer.setClearColorHex(0xFFFFFF, 1.0);//set the canvas's background color as clear
+              }
+        
+        //set up camera
+              var camera;
+              function initCamera() { 
+                camera = new THREE.PerspectiveCamera( 45, width / height , 1 , 5000 );
+                camera.position.y = 50;
+                camera.position.z = 100;
+                camera.up.x = 0;
+                camera.up.y = 1;
+                camera.up.z = 0;
+                camera.lookAt( {x:0, y:0, z:0 } );
+              }
+              
+        　//set up scene
+              var scene;
+              function initScene() {   
+                scene = new THREE.Scene();
+              }
+              
+          //set up light
+              var light;
+              function initLight() { 
+                light = new THREE.DirectionalLight(0xff0000, 1.0, 0);//set parallel light
+                light.position.set( 200, 200, 200 );//light vector
+                scene.add(light);// add it to the scene
+              }
+        
+          //create an object
+              var sphere;
+              function initObject(){  
+                sphere = new THREE.Mesh(
+                     new THREE.SphereGeometry(20,20),                //width,height,depth
+                     new THREE.MeshLambertMaterial({color: 0xff0000}) //materials
+                );
+                scene.add(sphere);
+                sphere.position.set(0,0,0);
+              }
+              
+         //function the all above
+         function threeStart() {
+                initThree();
+                initCamera();
+                initScene();   
+                initLight();
+                initObject();
+                renderer.clear(); 
+                renderer.render(scene, camera);
+              }
+        </script>
+        
+        <style type="text/css">
+            div#canvas-frame{
+                  border: none;
+                  cursor: move;
+                  width: 1400px;
+                  height: 600px;
+                  background-color: #EEEEEE;
+                }
+        </style>
+    </head>
+
+    <body>
+        <!--the container for placing the canvas-->
+        <div id="container"></div>
+    </body>
+</html>
