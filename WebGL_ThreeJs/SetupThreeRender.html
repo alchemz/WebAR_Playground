@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test 1 for creating canvas</title>
+        <!--Using Three.js-->
+        <script src="Three.js"></script>
+        <style type="text/css">
+        
+        //Start Three.js renderer
+             var renderer;//declare object
+             function initThree() {
+                width = document.getElementById('canvas3d').clientWidth;//get width of「canvas3d」
+                height = document.getElementById('canvas3d').clientHeight;//get height of「canvas3d」
+                renderer=new THREE.WebGLRenderer({antialias:true});//create a new renderer
+                renderer.setSize(width, height );//make the renderer the same size as the canvas
+                document.getElementById('canvas3d').appendChild(renderer.domElement);
+                renderer.setClearColorHex(0xFFFFFF, 1.0);//set the canvas's background color as clear
+              }
+              
+            div#canvas-frame{
+                  border: none;
+                  cursor: move;
+                  width: 1400px;
+                  height: 600px;
+                  background-color: #EEEEEE;
+                }
+        </style>
+    </head>
+
+    <body>
+        <!--the container for placing the canvas-->
+        <div id="container"></div>
+    </body>
+</html>
