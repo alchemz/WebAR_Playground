@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test 1 for creating canvas</title>
+        <!--Using Three.js-->
+        <script src="Three.js"></script>
+         //set up light
+              var light;
+              function initLight() { 
+                light = new THREE.DirectionalLight(0xff0000, 1.0, 0);//set parallel light
+                light.position.set( 200, 200, 200 );//light vector
+                scene.add(light);// add it to the scene
+              }
+              
+        <style type="text/css">
+            div#canvas-frame{
+                  border: none;
+                  cursor: move;
+                  width: 1400px;
+                  height: 600px;
+                  background-color: #EEEEEE;
+                }
+        </style>
+    </head>
+
+    <body>
+        <!--the container for placing the canvas-->
+        <div id="container"></div>
+    </body>
+</html>
